@@ -1,0 +1,7 @@
+{
+  "name": "AIVue",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue"
+}
