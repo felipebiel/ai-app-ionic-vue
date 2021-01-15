@@ -25,6 +25,14 @@
     <ion-button expand="block" color="secondary" class="ion-margin-top"
       >Login</ion-button
     >
+    <div class="ion-margin-top" v-if="true">
+      <div margin class="white ion-text-center">Carregando</div>
+      <ion-progress-bar
+        class="ion-margin-top"
+        type="indeterminate"
+        color="secondary"
+      ></ion-progress-bar>
+    </div>
   </ion-col>
 </template>
 
@@ -36,6 +44,7 @@ import {
   IonItem,
   IonIcon,
   IonText,
+  IonProgressBar,
 } from "@ionic/vue";
 import { person, lockClosed } from "ionicons/icons";
 export default {
@@ -46,6 +55,7 @@ export default {
     IonItem,
     IonIcon,
     IonText,
+    IonProgressBar,
   },
   data() {
     return {
@@ -57,6 +67,10 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.white {
+  color: var(--ion-color-primary-contrast);
+}
+
 ion-input {
   --color: var(--ion-color-primary-contrast);
 }
