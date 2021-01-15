@@ -37,6 +37,7 @@ export default {
   methods: {
     submitForm(form) {
       this.loading = true;
+      this.loginError = "";
       this.$store
         .dispatch("loginUser", form)
         .then(() => {
