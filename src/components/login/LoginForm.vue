@@ -39,7 +39,7 @@
     >
       Login
     </ion-button>
-    <div class="ion-margin-top" v-if="true">
+    <div class="ion-margin-top" v-if="loading">
       <div margin class="white ion-text-center">Carregando</div>
       <ion-progress-bar
         class="ion-margin-top"
@@ -62,6 +62,8 @@ import {
 } from "@ionic/vue";
 import { person, lockClosed } from "ionicons/icons";
 export default {
+  props: ["loading"],
+  emits: ["sendFormLogin"],
   components: {
     IonCol,
     IonInput,
@@ -109,6 +111,7 @@ export default {
     },
     sendFormLogin() {
       console.log("Enviando o form");
+      this.$emit("sendFormLogin", this.form);
     },
   },
 };

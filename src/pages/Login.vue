@@ -4,7 +4,7 @@
       <ion-col size="12" class="ion-text-center">
         <img src="../../assets/images/login/logo_nova.png" width="250" />
       </ion-col>
-      <login-form></login-form>
+      <login-form @sendFormLogin="submitForm" :loading="loading"></login-form>
     </ion-row>
   </vertical-align>
 </template>
@@ -21,6 +21,19 @@ export default {
     IonCol,
     VerticalAlign,
     LoginForm,
+  },
+  data() {
+    return {
+      loading: false,
+    };
+  },
+  methods: {
+    submitForm() {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+      }, 2000);
+    },
   },
 };
 </script>
