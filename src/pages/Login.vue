@@ -28,11 +28,16 @@ export default {
     };
   },
   methods: {
-    submitForm() {
+    submitForm(form) {
       this.loading = true;
-      setTimeout(() => {
-        this.loading = false;
-      }, 2000);
+      this.$store
+        .dispatch("loginUser", form)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     },
   },
 };
