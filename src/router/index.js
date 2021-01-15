@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import Home from '../views/Home.vue'
-import Login from '../views/Login.vue'
+import Login from '@/pages/Login.vue'
 
 const routes = [
   {
