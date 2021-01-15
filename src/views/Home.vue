@@ -26,6 +26,25 @@
         </p>
       </div>
     </ion-content>
+
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="schedule" href="/tabs/schedule">
+          <ion-icon :icon="informationCircle"></ion-icon>
+          <ion-label>Status</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="speakers" href="/tabs/speakers">
+          <ion-icon :icon="calendar"></ion-icon>
+          <ion-label>Eventos</ion-label>
+        </ion-tab-button>
+
+        <ion-tab-button tab="speakers" href="/tabs/speakers">
+          <ion-icon :icon="analytics"></ion-icon>
+          <ion-label>Consumo</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
   </ion-page>
 </template>
 
@@ -36,10 +55,15 @@ import {
   IonPage,
   IonTitle,
   IonToolbar,
+  IonTabs,
+  IonTabBar,
+  IonTabButton,
+  IonLabel,
+  IonIcon,
 } from "@ionic/vue";
-import { defineComponent } from "vue";
+import { informationCircle, calendar, analytics } from "ionicons/icons";
 
-export default defineComponent({
+export default {
   name: "Home",
   components: {
     IonContent,
@@ -47,8 +71,20 @@ export default defineComponent({
     IonPage,
     IonTitle,
     IonToolbar,
+    IonTabs,
+    IonTabBar,
+    IonTabButton,
+    IonLabel,
+    IonIcon,
   },
-});
+  data() {
+    return {
+      informationCircle,
+      calendar,
+      analytics,
+    };
+  },
+};
 </script>
 
 <style scoped>
@@ -78,5 +114,10 @@ export default defineComponent({
 
 #container a {
   text-decoration: none;
+}
+
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
 }
 </style>
