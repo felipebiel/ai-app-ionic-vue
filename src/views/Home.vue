@@ -1,88 +1,27 @@
 <template>
-  <ion-page>
-    <ion-header :translucent="true">
-      <ion-toolbar>
-        <ion-title>Blank</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
-    <ion-content :fullscreen="true">
-      <ion-header collapse="condense">
-        <ion-toolbar>
-          <ion-title size="large">Blank</ion-title>
-        </ion-toolbar>
-      </ion-header>
-
-      <div id="container">
-        <strong>Ready to create an app?</strong>
-        <p>
-          Start with Ionic
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://ionicframework.com/docs/components"
-            >UI Components</a
-          >
-        </p>
-      </div>
-    </ion-content>
-
-    <ion-tabs>
-      <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="schedule" href="/tabs/schedule">
-          <ion-icon :icon="informationCircle"></ion-icon>
-          <ion-label>Status</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="speakers" href="/tabs/speakers">
-          <ion-icon :icon="calendar"></ion-icon>
-          <ion-label>Eventos</ion-label>
-        </ion-tab-button>
-
-        <ion-tab-button tab="speakers" href="/tabs/speakers">
-          <ion-icon :icon="analytics"></ion-icon>
-          <ion-label>Consumo</ion-label>
-        </ion-tab-button>
-      </ion-tab-bar>
-    </ion-tabs>
-  </ion-page>
+  <base-layout pageTitle="Status">
+    <div id="container">
+      <strong>Ready to create an app?</strong>
+      <p>
+        Start with Ionic
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://ionicframework.com/docs/components"
+          >UI Components</a
+        >
+      </p>
+    </div>
+  </base-layout>
 </template>
 
 <script>
-import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-  IonTabs,
-  IonTabBar,
-  IonTabButton,
-  IonLabel,
-  IonIcon,
-} from "@ionic/vue";
-import { informationCircle, calendar, analytics } from "ionicons/icons";
+import BaseLayout from "@/components/base/BaseLayout.vue";
 
 export default {
   name: "Home",
   components: {
-    IonContent,
-    IonHeader,
-    IonPage,
-    IonTitle,
-    IonToolbar,
-    IonTabs,
-    IonTabBar,
-    IonTabButton,
-    IonLabel,
-    IonIcon,
-  },
-  data() {
-    return {
-      informationCircle,
-      calendar,
-      analytics,
-    };
+    BaseLayout,
   },
 };
 </script>
@@ -114,10 +53,5 @@ export default {
 
 #container a {
   text-decoration: none;
-}
-
-ion-toolbar {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
 }
 </style>
