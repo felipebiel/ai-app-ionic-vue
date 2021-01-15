@@ -29,6 +29,12 @@
         {{ passwordErros }}
       </p>
     </ion-text>
+
+    <ion-text color="danger" v-if="loginError">
+      <p class="ion-no-margin ion-margin-top ion-text-center">
+        {{ loginError }}
+      </p>
+    </ion-text>
   </ion-col>
   <ion-col size="12" class="ion-text-center">
     <ion-button
@@ -62,7 +68,7 @@ import {
 } from "@ionic/vue";
 import { person, lockClosed } from "ionicons/icons";
 export default {
-  props: ["loading"],
+  props: ["loading", "resetForm", "loginError"],
   emits: ["sendFormLogin"],
   components: {
     IonCol,
@@ -110,8 +116,18 @@ export default {
       }
     },
     sendFormLogin() {
-      console.log("Enviando o form");
       this.$emit("sendFormLogin", this.form);
+    },
+    resetFormLogin() {
+      this.form.username = "";
+      this.form.password = "";
+      this.usernameErrors = "";
+      this.passwordErros = "";
+    },
+  },
+  watch: {
+    resetForm() {
+      this.resetFormLogin();
     },
   },
 };

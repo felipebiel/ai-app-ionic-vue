@@ -4,7 +4,12 @@
       <ion-col size="12" class="ion-text-center">
         <img src="../../assets/images/login/logo_nova.png" width="250" />
       </ion-col>
-      <login-form @sendFormLogin="submitForm" :loading="loading"></login-form>
+      <login-form
+        @sendFormLogin="submitForm"
+        :loading="loading"
+        :resetForm="resetForm"
+        :loginError="loginError"
+      ></login-form>
     </ion-row>
   </vertical-align>
 </template>
@@ -25,6 +30,8 @@ export default {
   data() {
     return {
       loading: false,
+      resetForm: false,
+      loginError: "",
     };
   },
   methods: {
@@ -32,11 +39,13 @@ export default {
       this.loading = true;
       this.$store
         .dispatch("loginUser", form)
-        .then((response) => {
-          console.log(response);
+        .then(() => {
+          this.$router.replace("/home");
         })
-        .catch((e) => {
-          console.log(e);
+        .catch(() => {
+          this.loading = false;
+          this.resetForm = !this.resetForm;
+          this.loginError = "Credenciais inválidas.";
         });
     },
   },
