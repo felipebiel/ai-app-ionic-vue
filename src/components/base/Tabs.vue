@@ -49,6 +49,12 @@ export default {
 
 <style lang="css" scoped>
 ion-tab-button {
-  --color-selected: var(--ion-color-secondary);
+  --color-selected: var(--ion-color-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+  ion-tab-button {
+    --color-selected: var(--ion-color-secondary);
+  }
 }
 </style>
