@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import Home from '../views/Home.vue'
+import Events from '@/pages/Events.vue'
 import Login from '@/pages/Login.vue'
 
 const routes = [
@@ -8,9 +8,9 @@ const routes = [
     redirect: '/login'
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: Home
+    path: '/events',
+    name: 'events',
+    component: Events
   },
   {
     path: '/login',
