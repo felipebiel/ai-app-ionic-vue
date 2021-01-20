@@ -15,18 +15,13 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content>
+    <ion-content :fullscreen="true">
       <slot></slot>
     </ion-content>
-
-    <!-- AQUI PUXAR TABS -->
-    <tabs></tabs>
   </ion-page>
 </template>
 
 <script>
-import Tabs from "@/components/base/Tabs";
-
 import {
   IonContent,
   IonHeader,
@@ -47,7 +42,6 @@ export default {
     IonToolbar,
     IonBackButton,
     IonButtons,
-    Tabs,
   },
 };
 </script>
