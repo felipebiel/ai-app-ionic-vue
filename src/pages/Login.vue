@@ -41,7 +41,7 @@ export default {
       this.$store
         .dispatch("loginUser", form)
         .then(() => {
-          this.$router.replace("/home");
+          this.$router.replace("/events");
         })
         .catch(() => {
           this.loading = false;
