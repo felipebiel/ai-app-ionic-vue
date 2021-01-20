@@ -1,5 +1,6 @@
 <template>
   <base-layout pageTitle="Status">
+    <!-- PUMP STATUS -->
     <div class="ion-text-center">
       <h3>Bomba</h3>
     </div>
@@ -19,6 +20,20 @@
         </ion-card-title>
       </ion-card-header>
     </ion-card>
+
+    <!-- Level Tank -->
+
+    <div class="ion-text-center">
+      <h3>Nível</h3>
+    </div>
+    <div class="ion-text-center ion-margin">
+      <img :src="getTankUrl(nivelNoMomento)" width="250" />
+    </div>
+
+    <div class="ion-text-center">
+      <h2 class="porcentagem_reservatorio">{{ porcentagemReservatorio }}%</h2>
+      <h4>Aproximadamente {{ litrosReservatorio }} Litros</h4>
+    </div>
   </base-layout>
 </template>
 
@@ -37,7 +52,21 @@ export default {
   data() {
     return {
       bombaNoMomento: 1,
+      nivelNoMomento: 0,
+      porcentagemReservatorio: 30,
+      litrosReservatorio: 775,
     };
+  },
+  methods: {
+    getTankUrl(level) {
+      console.log(level);
+      const images = require.context(
+        "../../assets/images/status/",
+        false,
+        /\.png$/
+      );
+      return images("./status_" + level + ".png");
+    },
   },
 };
 </script>
@@ -62,5 +91,10 @@ export default {
 
 .card-alert ion-card-title {
   color: #856404;
+}
+
+.porcentagem_reservatorio {
+  font-size: 30pt;
+  font-weight: bold;
 }
 </style>
