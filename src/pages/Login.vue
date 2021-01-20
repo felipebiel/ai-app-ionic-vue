@@ -41,7 +41,7 @@ export default {
       this.$store
         .dispatch("loginUser", form)
         .then(() => {
-          this.$router.replace("/status");
+          this.$router.replace("/tabs/status");
         })
         .catch(() => {
           this.loading = false;
