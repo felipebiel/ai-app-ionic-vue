@@ -34,6 +34,26 @@
       <h2 class="porcentagem_reservatorio">{{ porcentagemReservatorio }}%</h2>
       <h4>Aproximadamente {{ litrosReservatorio }} Litros</h4>
     </div>
+
+    <div class="ion-text-center">
+      <h3>Contra Seco</h3>
+    </div>
+
+    <ion-card>
+      <ion-card-header
+        class="ion-padding"
+        :class="[
+          contraSecoNoMomento == 1
+            ? 'ion-text-center card-success'
+            : 'ion-text-center card-alert',
+        ]"
+      >
+        <ion-card-title>
+          <span v-if="contraSecoNoMomento == 1"> Tem água</span>
+          <span v-if="contraSecoNoMomento == 0"> Sem água</span>
+        </ion-card-title>
+      </ion-card-header>
+    </ion-card>
   </base-layout>
 </template>
 
@@ -55,11 +75,11 @@ export default {
       nivelNoMomento: 0,
       porcentagemReservatorio: 30,
       litrosReservatorio: 775,
+      contraSecoNoMomento: 1,
     };
   },
   methods: {
     getTankUrl(level) {
-      console.log(level);
       const images = require.context(
         "../../assets/images/status/",
         false,
