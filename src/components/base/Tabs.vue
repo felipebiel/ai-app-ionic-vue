@@ -2,7 +2,7 @@
   <ion-page>
     <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="schedule" href="/status">
+        <ion-tab-button tab="schedule" href="/tabs/status">
           <ion-icon :icon="informationCircle"></ion-icon>
           <ion-label>Status</ion-label>
         </ion-tab-button>
