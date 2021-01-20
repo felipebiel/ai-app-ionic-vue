@@ -1,22 +1,24 @@
 <template>
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="schedule" href="/status">
-        <ion-icon :icon="informationCircle"></ion-icon>
-        <ion-label>Status</ion-label>
-      </ion-tab-button>
+  <ion-page>
+    <ion-tabs>
+      <ion-tab-bar slot="bottom">
+        <ion-tab-button tab="schedule" href="/status">
+          <ion-icon :icon="informationCircle"></ion-icon>
+          <ion-label>Status</ion-label>
+        </ion-tab-button>
 
-      <ion-tab-button tab="speakers" href="/tabs/speakers">
-        <ion-icon :icon="calendar"></ion-icon>
-        <ion-label>Eventos</ion-label>
-      </ion-tab-button>
+        <ion-tab-button tab="speakers" href="/tabs/speakers">
+          <ion-icon :icon="calendar"></ion-icon>
+          <ion-label>Eventos</ion-label>
+        </ion-tab-button>
 
-      <ion-tab-button tab="speakers" href="/tabs/speakers">
-        <ion-icon :icon="analytics"></ion-icon>
-        <ion-label>Consumo</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+        <ion-tab-button tab="speakers" href="/tabs/speakers">
+          <ion-icon :icon="analytics"></ion-icon>
+          <ion-label>Consumo</ion-label>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+  </ion-page>
 </template>
 
 <script>
@@ -26,6 +28,7 @@ import {
   IonTabButton,
   IonIcon,
   IonLabel,
+  IonPage,
 } from "@ionic/vue";
 
 import { calendar, informationCircle, analytics } from "ionicons/icons";
@@ -36,6 +39,7 @@ export default {
     IonTabButton,
     IonIcon,
     IonLabel,
+    IonPage,
   },
   data() {
     return {
