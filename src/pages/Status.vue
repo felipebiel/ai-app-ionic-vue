@@ -1,97 +1,103 @@
 <template>
   <base-layout pageTitle="Status">
-    <!-- PUMP STATUS -->
-    <div class="ion-text-center">
-      <h3>Bomba</h3>
-    </div>
+    <div class="fadeIn" v-if="!progresso">
+      <!-- PUMP STATUS -->
+      <div class="ion-text-center">
+        <h3>Bomba</h3>
+      </div>
 
-    <ion-card>
-      <ion-card-header
+      <ion-card>
+        <ion-card-header
+          class="ion-padding"
+          :class="[
+            bombaNoMomento == 1
+              ? 'ion-text-center card-success'
+              : 'ion-text-center card-alert',
+          ]"
+        >
+          <ion-card-title>
+            <span v-if="bombaNoMomento == 1"> Ligada</span>
+            <span v-if="bombaNoMomento == 0"> Desligada</span>
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <!-- Level Tank -->
+
+      <div class="ion-text-center">
+        <h3>Nível</h3>
+      </div>
+      <div class="ion-text-center ion-margin">
+        <img :src="getTankUrl(nivelNoMomento)" width="250" />
+      </div>
+
+      <div class="ion-text-center">
+        <h2 class="porcentagem_reservatorio">{{ porcentagemReservatorio }}%</h2>
+        <h4>Aproximadamente {{ litrosReservatorio }} Litros</h4>
+      </div>
+
+      <div class="ion-text-center">
+        <h3>Contra Seco</h3>
+      </div>
+
+      <!-- not Dry -->
+      <ion-card>
+        <ion-card-header
+          class="ion-padding"
+          :class="[
+            contraSecoNoMomento == 1
+              ? 'ion-text-center card-success'
+              : 'ion-text-center card-alert',
+          ]"
+        >
+          <ion-card-title>
+            <span v-if="contraSecoNoMomento == 1"> Tem água</span>
+            <span v-if="contraSecoNoMomento == 0"> Sem água</span>
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <!-- Pump control -->
+      <div class="ion-text-center">
+        <h3>Controle da bomba d'agua</h3>
+      </div>
+
+      <ion-list v-if="nivelNoMomento == 3" class="ion-padding">
+        <ion-card-header class="ion-text-center card-alert">
+          <ion-card-title>
+            <p>O reservatório está cheio, nenhuma ação é permitida</p>
+          </ion-card-title>
+        </ion-card-header>
+      </ion-list>
+
+      <ion-list v-if="contraSecoNoMomento == 0" class="ion-padding">
+        <ion-card-header class="ion-text-center card-alert">
+          <ion-card-title>
+            <p>Não tem água, nenhuma ação é permitida</p>
+          </ion-card-title>
+        </ion-card-header>
+      </ion-list>
+
+      <ion-list
+        v-if="bombaNoMomento == 1 && contraSecoNoMomento == 1"
         class="ion-padding"
-        :class="[
-          bombaNoMomento == 1
-            ? 'ion-text-center card-success'
-            : 'ion-text-center card-alert',
-        ]"
       >
-        <ion-card-title>
-          <span v-if="bombaNoMomento == 1"> Ligada</span>
-          <span v-if="bombaNoMomento == 0"> Desligada</span>
-        </ion-card-title>
-      </ion-card-header>
-    </ion-card>
+        <ion-button color="warning" expand="block">Desligar</ion-button>
+      </ion-list>
 
-    <!-- Level Tank -->
-
-    <div class="ion-text-center">
-      <h3>Nível</h3>
-    </div>
-    <div class="ion-text-center ion-margin">
-      <img :src="getTankUrl(nivelNoMomento)" width="250" />
-    </div>
-
-    <div class="ion-text-center">
-      <h2 class="porcentagem_reservatorio">{{ porcentagemReservatorio }}%</h2>
-      <h4>Aproximadamente {{ litrosReservatorio }} Litros</h4>
-    </div>
-
-    <div class="ion-text-center">
-      <h3>Contra Seco</h3>
-    </div>
-
-    <!-- not Dry -->
-    <ion-card>
-      <ion-card-header
+      <ion-list
+        v-if="
+          bombaNoMomento == 0 && nivelNoMomento < 3 && contraSecoNoMomento == 1
+        "
         class="ion-padding"
-        :class="[
-          contraSecoNoMomento == 1
-            ? 'ion-text-center card-success'
-            : 'ion-text-center card-alert',
-        ]"
       >
-        <ion-card-title>
-          <span v-if="contraSecoNoMomento == 1"> Tem água</span>
-          <span v-if="contraSecoNoMomento == 0"> Sem água</span>
-        </ion-card-title>
-      </ion-card-header>
-    </ion-card>
-
-    <!-- Pump control -->
-    <div class="ion-text-center">
-      <h3>Controle da bomba d'agua</h3>
+        <ion-button color="warning" expand="block">Ligar</ion-button>
+      </ion-list>
     </div>
-
-    <ion-list v-if="nivelNoMomento == 3" class="ion-padding">
-      <ion-card-header class="ion-text-center card-alert">
-        <ion-card-title>
-          <p>O reservatório está cheio, nenhuma ação é permitida</p>
-        </ion-card-title>
-      </ion-card-header>
-    </ion-list>
-
-    <ion-list v-if="contraSecoNoMomento == 0" class="ion-padding">
-      <ion-card-header class="ion-text-center card-alert">
-        <ion-card-title>
-          <p>Não tem água, nenhuma ação é permitida</p>
-        </ion-card-title>
-      </ion-card-header>
-    </ion-list>
-
-    <ion-list
-      v-if="bombaNoMomento == 1 && contraSecoNoMomento == 1"
-      class="ion-padding"
-    >
-      <ion-button color="warning" expand="block">Desligar</ion-button>
-    </ion-list>
-
-    <ion-list
-      v-if="
-        bombaNoMomento == 0 && nivelNoMomento < 3 && contraSecoNoMomento == 1
-      "
-      class="ion-padding"
-    >
-      <ion-button color="warning" expand="block">Ligar</ion-button>
-    </ion-list>
+    <div class="ion-padding fadeIn" v-else>
+      <div class="ion-text-center ion-margin">Carregando</div>
+      <ion-progress-bar type="indeterminate"></ion-progress-bar>
+    </div>
   </base-layout>
 </template>
 
@@ -103,6 +109,7 @@ import {
   IonCardTitle,
   IonList,
   IonButton,
+  IonProgressBar,
 } from "@ionic/vue";
 
 export default {
@@ -114,6 +121,7 @@ export default {
     IonCardTitle,
     IonList,
     IonButton,
+    IonProgressBar,
   },
   data() {
     return {
@@ -122,7 +130,14 @@ export default {
       porcentagemReservatorio: 30,
       litrosReservatorio: 775,
       contraSecoNoMomento: 0,
+      progresso: true,
     };
+  },
+  created() {
+    //simulando carregamento
+    setTimeout(() => {
+      this.progresso = false;
+    }, 3000);
   },
   methods: {
     getTankUrl(level) {
