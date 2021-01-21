@@ -18,3 +18,23 @@
   animation-name: fadeIn;
   animation-duration: 1s;
 }
+
+/* Cores dos cards seguindo bootstrap*/
+
+.card-success {
+  border-left: 5px solid #c3e6cb;
+  background-color: #c3e6cb;
+}
+
+.card-success ion-card-title {
+  color: #155724;
+}
+
+.card-alert {
+  border-left: 5px solid #ffeeba;
+  background-color: #ffeeba;
+}
+
+.card-alert ion-card-title {
+  color: #856404;
+}
