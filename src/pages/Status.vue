@@ -19,41 +19,11 @@
       <not-dry :contraSecoNoMomento="contraSecoNoMomento"></not-dry>
 
       <!-- Pump control -->
-      <div class="ion-text-center">
-        <h3>Controle da bomba d'agua</h3>
-      </div>
-
-      <ion-list v-if="nivelNoMomento == 3" class="ion-padding">
-        <ion-card-header class="ion-text-center card-alert">
-          <ion-card-title>
-            <p>O reservatório está cheio, nenhuma ação é permitida</p>
-          </ion-card-title>
-        </ion-card-header>
-      </ion-list>
-
-      <ion-list v-if="contraSecoNoMomento == 0" class="ion-padding">
-        <ion-card-header class="ion-text-center card-alert">
-          <ion-card-title>
-            <p>Não tem água, nenhuma ação é permitida</p>
-          </ion-card-title>
-        </ion-card-header>
-      </ion-list>
-
-      <ion-list
-        v-if="bombaNoMomento == 1 && contraSecoNoMomento == 1"
-        class="ion-padding"
-      >
-        <ion-button color="warning" expand="block">Desligar</ion-button>
-      </ion-list>
-
-      <ion-list
-        v-if="
-          bombaNoMomento == 0 && nivelNoMomento < 3 && contraSecoNoMomento == 1
-        "
-        class="ion-padding"
-      >
-        <ion-button color="warning" expand="block">Ligar</ion-button>
-      </ion-list>
+      <pump-control
+        :bombaNoMomento="bombaNoMomento"
+        :contraSecoNoMomento="contraSecoNoMomento"
+        :nivelNoMomento="nivelNoMomento"
+      ></pump-control>
     </div>
     <div class="ion-padding fadeIn" v-else>
       <div class="ion-text-center ion-margin">Carregando</div>
@@ -67,26 +37,18 @@ import BaseLayout from "@/components/base/BaseLayout.vue";
 import PumpInfo from "@/components/status/PumpInfo.vue";
 import LevelTank from "@/components/status/LevelTank.vue";
 import NotDry from "@/components/status/NotDry.vue";
-import {
-  IonCardHeader,
-  IonCardTitle,
-  IonList,
-  IonButton,
-  IonProgressBar,
-} from "@ionic/vue";
+import PumpControl from "@/components/status/PumpControl.vue";
+import { IonProgressBar } from "@ionic/vue";
 
 export default {
   name: "Home",
   components: {
     BaseLayout,
-    IonCardHeader,
-    IonCardTitle,
-    IonList,
-    IonButton,
     IonProgressBar,
     PumpInfo,
     LevelTank,
     NotDry,
+    PumpControl,
   },
   data() {
     return {
