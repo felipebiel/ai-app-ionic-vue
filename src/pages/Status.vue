@@ -2,25 +2,7 @@
   <base-layout pageTitle="Status">
     <div class="fadeIn" v-if="!progresso">
       <!-- PUMP STATUS -->
-      <div class="ion-text-center">
-        <h3>Bomba</h3>
-      </div>
-
-      <ion-card>
-        <ion-card-header
-          class="ion-padding"
-          :class="[
-            bombaNoMomento == 1
-              ? 'ion-text-center card-success'
-              : 'ion-text-center card-alert',
-          ]"
-        >
-          <ion-card-title>
-            <span v-if="bombaNoMomento == 1"> Ligada</span>
-            <span v-if="bombaNoMomento == 0"> Desligada</span>
-          </ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <pump-info :bombaNoMomento="bombaNoMomento"></pump-info>
 
       <!-- Level Tank -->
 
@@ -103,6 +85,7 @@
 
 <script>
 import BaseLayout from "@/components/base/BaseLayout.vue";
+import PumpInfo from "@/components/status/PumpInfo.vue";
 import {
   IonCard,
   IonCardHeader,
@@ -122,6 +105,7 @@ export default {
     IonList,
     IonButton,
     IonProgressBar,
+    PumpInfo,
   },
   data() {
     return {
@@ -154,25 +138,6 @@ export default {
 
 <style scoped>
 /* Especifc */
-/*LABEL DE CONSUMO */
-
-.card-success {
-  border-left: 5px solid #c3e6cb;
-  background-color: #c3e6cb;
-}
-
-.card-success ion-card-title {
-  color: #155724;
-}
-
-.card-alert {
-  border-left: 5px solid #ffeeba;
-  background-color: #ffeeba;
-}
-
-.card-alert ion-card-title {
-  color: #856404;
-}
 
 .porcentagem_reservatorio {
   font-size: 30pt;
