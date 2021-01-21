@@ -1,5 +1,5 @@
 <template>
-  <vertical-align>
+  <vertical-align class="fadeIn">
     <ion-row class="ion-padding">
       <ion-col size="12" class="ion-text-center">
         <img src="../../assets/images/login/logo_nova.png" width="250" />
