@@ -22,6 +22,7 @@
         class="ion-text-center"
         type="password"
         v-model="form.password"
+        @keyup.enter="validatorLoginField"
       ></ion-input>
     </ion-item>
     <ion-text color="danger" v-if="passwordErros">
