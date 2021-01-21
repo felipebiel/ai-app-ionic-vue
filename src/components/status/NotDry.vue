@@ -1,4 +1,7 @@
 <template>
+  <div class="ion-text-center">
+    <h3>Contra Seco</h3>
+  </div>
   <ion-card>
     <ion-card-header
       class="ion-padding"

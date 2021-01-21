@@ -11,10 +11,6 @@
         :litrosReservatorio="litrosReservatorio"
       ></level-tank>
 
-      <div class="ion-text-center">
-        <h3>Contra Seco</h3>
-      </div>
-
       <!-- not Dry -->
       <not-dry :contraSecoNoMomento="contraSecoNoMomento"></not-dry>
 
@@ -25,26 +21,28 @@
         :nivelNoMomento="nivelNoMomento"
       ></pump-control>
     </div>
-    <div class="ion-padding fadeIn" v-else>
-      <div class="ion-text-center ion-margin">Carregando</div>
-      <ion-progress-bar type="indeterminate"></ion-progress-bar>
-    </div>
+
+    <loading-page
+      class="ion-padding fadeIn"
+      v-else
+      loadingMessage="Carregando"
+    ></loading-page>
   </base-layout>
 </template>
 
 <script>
 import BaseLayout from "@/components/base/BaseLayout.vue";
+import LoadingPage from "@/components/base/LoadingPage.vue";
 import PumpInfo from "@/components/status/PumpInfo.vue";
 import LevelTank from "@/components/status/LevelTank.vue";
 import NotDry from "@/components/status/NotDry.vue";
 import PumpControl from "@/components/status/PumpControl.vue";
-import { IonProgressBar } from "@ionic/vue";
 
 export default {
   name: "Home",
   components: {
     BaseLayout,
-    IonProgressBar,
+    LoadingPage,
     PumpInfo,
     LevelTank,
     NotDry,
