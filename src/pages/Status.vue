@@ -5,18 +5,11 @@
       <pump-info :bombaNoMomento="bombaNoMomento"></pump-info>
 
       <!-- Level Tank -->
-
-      <div class="ion-text-center">
-        <h3>Nível</h3>
-      </div>
-      <div class="ion-text-center ion-margin">
-        <img :src="getTankUrl(nivelNoMomento)" width="250" />
-      </div>
-
-      <div class="ion-text-center">
-        <h2 class="porcentagem_reservatorio">{{ porcentagemReservatorio }}%</h2>
-        <h4>Aproximadamente {{ litrosReservatorio }} Litros</h4>
-      </div>
+      <level-tank
+        :nivelNoMomento="nivelNoMomento"
+        :porcentagemReservatorio="porcentagemReservatorio"
+        :litrosReservatorio="litrosReservatorio"
+      ></level-tank>
 
       <div class="ion-text-center">
         <h3>Contra Seco</h3>
@@ -86,6 +79,7 @@
 <script>
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import PumpInfo from "@/components/status/PumpInfo.vue";
+import LevelTank from "@/components/status/LevelTank.vue";
 import {
   IonCard,
   IonCardHeader,
@@ -106,6 +100,7 @@ export default {
     IonButton,
     IonProgressBar,
     PumpInfo,
+    LevelTank,
   },
   data() {
     return {
@@ -123,24 +118,8 @@ export default {
       this.progresso = false;
     }, 3000);
   },
-  methods: {
-    getTankUrl(level) {
-      const images = require.context(
-        "../../assets/images/status/",
-        false,
-        /\.png$/
-      );
-      return images("./status_" + level + ".png");
-    },
-  },
 };
 </script>
 
 <style scoped>
-/* Especifc */
-
-.porcentagem_reservatorio {
-  font-size: 30pt;
-  font-weight: bold;
-}
 </style>
