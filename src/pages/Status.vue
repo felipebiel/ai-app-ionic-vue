@@ -16,21 +16,7 @@
       </div>
 
       <!-- not Dry -->
-      <ion-card>
-        <ion-card-header
-          class="ion-padding"
-          :class="[
-            contraSecoNoMomento == 1
-              ? 'ion-text-center card-success'
-              : 'ion-text-center card-alert',
-          ]"
-        >
-          <ion-card-title>
-            <span v-if="contraSecoNoMomento == 1"> Tem água</span>
-            <span v-if="contraSecoNoMomento == 0"> Sem água</span>
-          </ion-card-title>
-        </ion-card-header>
-      </ion-card>
+      <not-dry :contraSecoNoMomento="contraSecoNoMomento"></not-dry>
 
       <!-- Pump control -->
       <div class="ion-text-center">
@@ -80,8 +66,8 @@
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import PumpInfo from "@/components/status/PumpInfo.vue";
 import LevelTank from "@/components/status/LevelTank.vue";
+import NotDry from "@/components/status/NotDry.vue";
 import {
-  IonCard,
   IonCardHeader,
   IonCardTitle,
   IonList,
@@ -93,7 +79,6 @@ export default {
   name: "Home",
   components: {
     BaseLayout,
-    IonCard,
     IonCardHeader,
     IonCardTitle,
     IonList,
@@ -101,6 +86,7 @@ export default {
     IonProgressBar,
     PumpInfo,
     LevelTank,
+    NotDry,
   },
   data() {
     return {
