@@ -25,6 +25,19 @@ export default {
                     }
                 }, 2000);
             });
+        },
+        checkAuth(context) {
+            return new Promise((resolve, reject) => {
+                // validação simples
+                const token = localStorage.getItem('token');
+                // simular validar token no back
+                if(token){
+                    context.commit('SET_TOKEN_AND_USER', {user: { username:'felipe', password:'123456'}, token:token })
+                    resolve('ok')
+                } else {
+                    reject();
+                }
+            });
         }
     }
 }
