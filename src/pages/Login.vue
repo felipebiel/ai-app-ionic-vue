@@ -34,6 +34,9 @@ export default {
       loginError: "",
     };
   },
+  created() {
+    this.checkLogin();
+  },
   methods: {
     submitForm(form) {
       this.loading = true;
@@ -48,6 +51,15 @@ export default {
           this.resetForm = !this.resetForm;
           this.loginError = "Credenciais inválidas.";
         });
+    },
+    checkLogin() {
+      //redireciona para home se tem token
+      this.$store
+        .dispatch("checkAuth")
+        .then(() => {
+          this.$router.replace("/tabs/status");
+        })
+        .catch(() => {});
     },
   },
 };
