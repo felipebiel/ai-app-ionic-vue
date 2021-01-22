@@ -9,8 +9,7 @@
         </ion-buttons>
         <ion-title> {{ pageTitle }}</ion-title>
         <ion-buttons slot="end">
-          <!-- AQUI VAI VIR O MENU -->
-          <slot name="actions-end"></slot>
+          <ion-menu-button></ion-menu-button>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
@@ -30,6 +29,7 @@ import {
   IonToolbar,
   IonBackButton,
   IonButtons,
+  IonMenuButton,
 } from "@ionic/vue";
 export default {
   name: "BaseLayout",
@@ -42,6 +42,7 @@ export default {
     IonToolbar,
     IonBackButton,
     IonButtons,
+    IonMenuButton,
   },
 };
 </script>
