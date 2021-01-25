@@ -1,5 +1,4 @@
 <template>
-  <ion-card v-for="evento in events" :key="evento.id">
     <ion-card-header class="card-info">
       <ion-card-title>
         <ion-icon :icon="alertCircleOutline"></ion-icon> Informativo
@@ -34,12 +33,10 @@
         {{ $utils.dateAgo(evento.dateHourLevelCurrent) }}
       </ion-card-subtitle>
     </ion-card-header>
-  </ion-card>
 </template>
 
 <script>
 import {
-  IonCard,
   IonCardHeader,
   IonCardTitle,
   IonIcon,
@@ -50,9 +47,8 @@ import { alertCircleOutline } from "ionicons/icons";
 
 export default {
   name: "EventsItem",
-  props: ["events"],
+  props: ["evento"],
   components: {
-    IonCard,
     IonCardHeader,
     IonCardTitle,
     IonIcon,

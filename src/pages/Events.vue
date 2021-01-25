@@ -1,7 +1,7 @@
 <template>
   <base-layout pageTitle="Status">
     <div class="fadeIn" v-if="!progresso">
-      <events-item :events="events"></events-item>
+      <events-list-item :events="events"></events-list-item>
     </div>
     <loading-page
       class="ion-padding fadeIn"
@@ -14,14 +14,14 @@
 <script>
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import LoadingPage from "@/components/base/LoadingPage.vue";
-import EventsItem from "@/components/events/EventsItem.vue";
+import EventsListItem from "@/components/events/EventsListItem.vue";
 
 export default {
   name: "Events",
   components: {
     BaseLayout,
     LoadingPage,
-    EventsItem,
+    EventsListItem,
   },
   data() {
     return {
