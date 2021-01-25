@@ -39,7 +39,7 @@ import NotDry from "@/components/status/NotDry.vue";
 import PumpControl from "@/components/status/PumpControl.vue";
 
 export default {
-  name: "Home",
+  name: "Status",
   components: {
     BaseLayout,
     LoadingPage,
