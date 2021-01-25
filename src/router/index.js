@@ -26,6 +26,11 @@ const routes = [
         name: 'status',
         component: Status
       },
+      {
+        path: 'events',
+        name: 'events',
+        component: () => import('../pages/Events')
+      },
     ]
   }
 ]

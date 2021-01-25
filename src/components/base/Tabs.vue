@@ -2,12 +2,12 @@
   <ion-page>
     <ion-tabs>
       <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="schedule" href="/tabs/status">
+        <ion-tab-button tab="status" href="/tabs/status">
           <ion-icon :icon="informationCircle"></ion-icon>
           <ion-label>Status</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="speakers" href="/tabs/speakers">
+        <ion-tab-button tab="events" href="/tabs/events">
           <ion-icon :icon="calendar"></ion-icon>
           <ion-label>Eventos</ion-label>
         </ion-tab-button>
