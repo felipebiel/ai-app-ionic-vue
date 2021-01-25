@@ -35,7 +35,7 @@
           </p>
           <ion-card-subtitle end>
             <ion-icon ios="ios-calendar" md="md-calendar"></ion-icon>
-            {{ dateAgo(evento.dateHourLevelCurrent) }}
+            {{ $utils.dateAgo(evento.dateHourLevelCurrent) }}
           </ion-card-subtitle>
         </ion-card-header>
       </ion-card>
@@ -121,11 +121,6 @@ export default {
     setTimeout(() => {
       this.progresso = false;
     }, 3000);
-  },
-  methods: {
-    dateAgo(value) {
-      return value;
-    },
   },
 };
 </script>
