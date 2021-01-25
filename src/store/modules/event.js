@@ -12,35 +12,35 @@ export default {
             return new Promise((resolve) => {
                 context.commit('SET_EVENTS', [
                     {
-                      id: 1,
+                      id: Date.now(),
                       bombaOnOff: 0,
                       currentLevel: 3,
                       contraSecoOnOff: 1,
-                      dateHourLevelCurrent: Date.now(),
+                      dateHourLevelCurrent: Date.now() - 1000,
                     },
                     {
-                      id: 2,
+                      id: Date.now(),
                       bombaOnOff: 1,
                       currentLevel: 3,
                       contraSecoOnOff: 1,
                       dateHourLevelCurrent: Date.now() - 5000,
                     },
                     {
-                      id: 3,
+                      id: Date.now(),
                       bombaOnOff: 1,
                       currentLevel: 2,
                       contraSecoOnOff: 1,
                       dateHourLevelCurrent: Date.now() - 6000,
                     },
                     {
-                      id: 4,
+                      id: Date.now(),
                       bombaOnOff: 1,
                       currentLevel: 1,
                       contraSecoOnOff: 1,
                       dateHourLevelCurrent: Date.now() - 7000,
                     },
                     {
-                      id: 5,
+                      id: Date.now(),
                       bombaOnOff: 1,
                       currentLevel: 0,
                       contraSecoOnOff: 1,
