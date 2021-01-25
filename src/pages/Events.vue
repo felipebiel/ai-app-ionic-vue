@@ -9,7 +9,7 @@
           <p>
             <b> <ion-icon name="list-box"></ion-icon> Nível: </b>
             <span :class="['text-nivel' + evento.currentLevel]">{{
-              tratarNivel(evento.currentLevel)
+              $utils.tratarNivel(evento.currentLevel)
             }}</span>
           </p>
           <p>
@@ -124,26 +124,6 @@ export default {
   },
   methods: {
     dateAgo(value) {
-      return value;
-    },
-    tratarNivel(value) {
-      switch (value) {
-        case 0:
-          value = "Vazio";
-          break;
-        case 1:
-          value = "Baixo";
-          break;
-        case 2:
-          value = "Médio";
-          break;
-
-        case 3:
-          value = "Cheio";
-          break;
-        default:
-          break;
-      }
       return value;
     },
   },
