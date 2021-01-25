@@ -6,6 +6,9 @@ export default {
         SET_EVENTS(state, data){
             state.events = data;
         },
+        SET_MORE_EVENTS(state, data) {
+            state.events.push(data);
+        }
     },
     actions: {
         loadEvents(context) {
@@ -48,6 +51,22 @@ export default {
                     },
                   ])
                   resolve();
+            });
+        },
+        loadMoreEvens(context) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    for (let index = 0; index < 5; index++) {
+                        context.commit('SET_MORE_EVENTS', {
+                            id: Date.now(),
+                            bombaOnOff: Math.floor(Math.random() * 1),
+                            currentLevel: Math.floor(Math.random() * 3),
+                            contraSecoOnOff: Math.floor(Math.random() * 1),
+                            dateHourLevelCurrent: context.state.events[context.state.events.length - 1].dateHourLevelCurrent - 150000,
+                        });                    
+                    }
+                    resolve();
+                }, 3000);                                
             });
         }
     }
