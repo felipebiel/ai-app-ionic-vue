@@ -31,6 +31,11 @@ const routes = [
         name: 'events',
         component: () => import('../pages/Events')
       },
+      {
+        path: 'consumption',
+        name: 'consumption',
+        component: () => import('../pages/Consumption')
+      },
     ]
   }
 ]

@@ -12,7 +12,7 @@
           <ion-label>Eventos</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="speakers" href="/tabs/speakers">
+        <ion-tab-button tab="consumption" href="/tabs/consumption">
           <ion-icon :icon="analytics"></ion-icon>
           <ion-label>Consumo</ion-label>
         </ion-tab-button>
