@@ -19,7 +19,7 @@
           <ion-icon :icon="analytics" slot="start"></ion-icon>
           <ion-label>Consumo</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item @click="goToLink('/settings')">
           <ion-icon :icon="settings" slot="start"></ion-icon>
           <ion-label>Configurações</ion-label>
         </ion-item>
