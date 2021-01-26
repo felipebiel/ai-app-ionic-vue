@@ -42,15 +42,21 @@ export default {
   created() {
     //simulando carregamento
     setTimeout(() => {
+      this.generateChart(this.days, this.litrosDays);
+      this.progresso = false;
+    }, 3000);
+  },
+  methods: {
+    generateChart(labelsData, datasetsData) {
       const ctx = this.$refs.myChart;
       new Chart(ctx, {
         type: "line",
         data: {
-          labels: this.days,
+          labels: labelsData,
           datasets: [
             {
               label: "Litros por dia",
-              data: this.litrosDays,
+              data: datasetsData,
               backgroundColor: "rgba(23, 69, 128, 0.6)",
               borderColor: "rgb(23, 69, 128)",
               borderWidth: 1,
@@ -70,9 +76,7 @@ export default {
           },
         },
       });
-
-      this.progresso = false;
-    }, 3000);
+    },
   },
 };
 </script>
