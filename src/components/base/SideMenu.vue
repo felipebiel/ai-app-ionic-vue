@@ -7,15 +7,15 @@
     </ion-header>
     <ion-content>
       <ion-list>
-        <ion-item>
+        <ion-item @click="goToLink('/tabs/status')">
           <ion-icon :icon="informationCircle" slot="start"></ion-icon>
           <ion-label>Status</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item @click="goToLink('/tabs/events')">
           <ion-icon :icon="calendar" slot="start"></ion-icon>
           <ion-label>Eventos</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item @click="goToLink('/tabs/consumption')">
           <ion-icon :icon="analytics" slot="start"></ion-icon>
           <ion-label>Consumo</ion-label>
         </ion-item>
@@ -51,6 +51,7 @@ import {
   IonTitle,
   IonLabel,
   IonContent,
+  menuController,
 } from "@ionic/vue";
 import {
   informationCircle,
@@ -83,6 +84,12 @@ export default {
       logOut,
       settings,
     };
+  },
+  methods: {
+    goToLink(link) {
+      this.$router.replace(link);
+      menuController.toggle();
+    },
   },
 };
 </script>
