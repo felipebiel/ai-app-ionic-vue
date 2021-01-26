@@ -74,6 +74,7 @@ import {
   IonButton,
   IonSelect,
   IonSelectOption,
+  toastController,
 } from "@ionic/vue";
 
 import BaseLayout from "@/components/base/BaseLayout.vue";
@@ -111,7 +112,19 @@ export default {
         this.automatico = false;
       }
     },
-    updateDevice() {},
+    updateDevice() {
+      setTimeout(() => {
+        this.openToast();
+      }, 1000);
+    },
+    async openToast() {
+      const toast = await toastController.create({
+        message: "Salvo com sucesso.",
+        duration: 2000,
+        color: "success",
+      });
+      return toast.present();
+    },
   },
 };
 </script>
