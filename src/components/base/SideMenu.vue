@@ -23,7 +23,7 @@
           <ion-icon :icon="settings" slot="start"></ion-icon>
           <ion-label>Configurações</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item @click="goToLink('/me')">
           <ion-icon :icon="person" slot="start"></ion-icon>
           <ion-label>Meus Dados</ion-label>
         </ion-item>
