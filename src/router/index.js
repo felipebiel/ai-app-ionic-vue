@@ -19,6 +19,11 @@ const routes = [
     component: () => import('../pages/About')
   },
   {
+    path: '/settings',
+    name: 'settings',
+    component: () => import('../pages/Settings')
+  },
+  {
     path: '/tabs/',
     component: Tabs,
     children: [
