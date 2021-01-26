@@ -38,6 +38,13 @@ export default {
                     reject();
                 }
             });
+        },
+        logout(context) {
+            return new Promise((resolve) => {
+                localStorage.removeItem('token');
+                context.commit('SET_TOKEN_AND_USER', {user: {}, token: "" })
+                resolve();
+            });
         }
     }
 }

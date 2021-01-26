@@ -44,7 +44,7 @@ export default {
       this.$store
         .dispatch("loginUser", form)
         .then(() => {
-          this.$router.replace("/tabs/status");
+          this.$router.replace("/tabs");
         })
         .catch(() => {
           this.loading = false;
@@ -57,7 +57,7 @@ export default {
       this.$store
         .dispatch("checkAuth")
         .then(() => {
-          this.$router.replace("/tabs/status");
+          this.$router.replace("/tabs");
         })
         .catch(() => {});
     },

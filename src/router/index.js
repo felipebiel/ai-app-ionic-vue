@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import Status from '@/pages/Status.vue'
 import Login from '@/pages/Login.vue'
 import Tabs from '@/components/base/Tabs.vue'
 
@@ -29,7 +28,7 @@ const routes = [
     component: () => import('../pages/Me')
   },
   {
-    path: '/tabs/',
+    path: '/tabs',
     component: Tabs,
     children: [
       {
@@ -39,7 +38,7 @@ const routes = [
       {
         path: 'status',
         name: 'status',
-        component: Status
+        component: () => import('../pages/Status')
       },
       {
         path: 'events',

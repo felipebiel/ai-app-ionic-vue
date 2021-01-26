@@ -31,13 +31,20 @@
           <ion-icon :icon="chatbubble" slot="start"></ion-icon>
           <ion-label>Sobre</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item @click="logout()">
           <ion-icon :icon="logOut" slot="start"></ion-icon>
           <ion-label>Sair</ion-label>
         </ion-item>
       </ion-list>
     </ion-content>
   </ion-menu>
+  <ion-loading
+    :is-open="openLoading"
+    cssClass="my-custom-class"
+    message="Saindo..."
+    :duration="2000"
+  >
+  </ion-loading>
 </template>
 
 <script>
@@ -52,6 +59,7 @@ import {
   IonLabel,
   IonContent,
   menuController,
+  IonLoading,
 } from "@ionic/vue";
 import {
   informationCircle,
@@ -73,6 +81,7 @@ export default {
     IonTitle,
     IonLabel,
     IonContent,
+    IonLoading,
   },
   data() {
     return {
@@ -83,12 +92,20 @@ export default {
       chatbubble,
       logOut,
       settings,
+      openLoading: false,
     };
   },
   methods: {
     goToLink(link) {
       this.$router.replace(link);
       menuController.toggle();
+    },
+    async logout() {
+      this.openLoading = true;
+      menuController.toggle();
+      this.$store.dispatch("logout").then(() => {
+        this.$router.push("/login");
+      });
     },
   },
 };
