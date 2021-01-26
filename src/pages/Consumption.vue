@@ -1,5 +1,5 @@
 <template>
-  <base-layout pageTitle="Status">
+  <base-layout pageTitle="Consumo">
     <div class="fadeIn" v-show="!progresso" style="height: 82vh">
       <ion-list class="welcome-card">
         <ion-card-header>
