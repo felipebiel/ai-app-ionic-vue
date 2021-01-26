@@ -14,6 +14,11 @@ const routes = [
     component: Login
   },
   {
+    path: '/about',
+    name: 'about',
+    component: () => import('../pages/About')
+  },
+  {
     path: '/tabs/',
     component: Tabs,
     children: [
