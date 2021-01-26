@@ -24,7 +24,7 @@
 import BaseLayout from "@/components/base/BaseLayout.vue";
 
 export default {
-  name: "Events",
+  name: "About",
   components: {
     BaseLayout,
   },
