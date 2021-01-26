@@ -27,7 +27,7 @@
           <ion-icon :icon="person" slot="start"></ion-icon>
           <ion-label>Meus Dados</ion-label>
         </ion-item>
-        <ion-item>
+        <ion-item @click="goToLink('/about')">
           <ion-icon :icon="chatbubble" slot="start"></ion-icon>
           <ion-label>Sobre</ion-label>
         </ion-item>
