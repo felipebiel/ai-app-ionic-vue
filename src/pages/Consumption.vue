@@ -1,7 +1,12 @@
 <template>
   <base-layout pageTitle="Status">
-    <div class="fadeIn" v-show="!progresso">
-      <canvas width="400" ref="myChart" height="400"></canvas>
+    <div class="fadeIn" v-show="!progresso" style="height: 82vh">
+      <ion-list class="welcome-card">
+        <ion-card-header>
+          <ion-card-title>Consumo nos ultimos 30 dias</ion-card-title>
+        </ion-card-header>
+      </ion-list>
+      <canvas ref="myChart" height="300" class="ion-padding"></canvas>
     </div>
     <loading-page
       class="ion-padding fadeIn"
@@ -16,15 +21,22 @@ import BaseLayout from "@/components/base/BaseLayout.vue";
 import LoadingPage from "@/components/base/LoadingPage.vue";
 import Chart from "chart.js";
 
+import { IonList, IonCardHeader, IonCardTitle } from "@ionic/vue";
+
 export default {
   name: "Events",
   components: {
     BaseLayout,
     LoadingPage,
+    IonList,
+    IonCardHeader,
+    IonCardTitle,
   },
   data() {
     return {
       progresso: true,
+      days: [1, 2, 3, 4, 5, 6],
+      litrosDays: [150, 400, 500, 450, 45, 650],
     };
   },
   created() {
@@ -32,34 +44,21 @@ export default {
     setTimeout(() => {
       const ctx = this.$refs.myChart;
       new Chart(ctx, {
-        type: "bar",
+        type: "line",
         data: {
-          labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+          labels: this.days,
           datasets: [
             {
-              label: "# of Votes",
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.2)",
-                "rgba(54, 162, 235, 0.2)",
-                "rgba(255, 206, 86, 0.2)",
-                "rgba(75, 192, 192, 0.2)",
-                "rgba(153, 102, 255, 0.2)",
-                "rgba(255, 159, 64, 0.2)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-                "rgba(255, 159, 64, 1)",
-              ],
+              label: "Litros por dia",
+              data: this.litrosDays,
+              backgroundColor: "rgba(23, 69, 128, 0.6)",
+              borderColor: "rgb(23, 69, 128)",
               borderWidth: 1,
             },
           ],
         },
         options: {
+          responsive: true,
           scales: {
             yAxes: [
               {
