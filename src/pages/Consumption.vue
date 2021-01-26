@@ -24,7 +24,7 @@ import Chart from "chart.js";
 import { IonList, IonCardHeader, IonCardTitle } from "@ionic/vue";
 
 export default {
-  name: "Events",
+  name: "Consumption",
   components: {
     BaseLayout,
     LoadingPage,
