@@ -1,5 +1,5 @@
 <template>
-  <base-layout pageTitle="Status">
+  <base-layout pageTitle="Eventos">
     <div class="fadeIn" v-if="!progresso">
       <events-list-item :events="events"></events-list-item>
     </div>
