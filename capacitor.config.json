@@ -1,12 +1,14 @@
 {
   "appId": "io.ionic.starter",
-  "appName": "AIVue",
+  "appName": "AI",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "dist",
   "plugins": {
     "SplashScreen": {
-      "launchShowDuration": 0
+      "launchShowDuration": 2000,
+      "backgroundColor": "#174580",
+      "splashFullScreen": true
     }
   },
   "cordova": {}
