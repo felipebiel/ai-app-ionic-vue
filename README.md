@@ -16,6 +16,36 @@
 ---
 
 O aplicativo inicialmente foi desenvolvido com IONIC 3 + Angular, a proposta desta versão é inicialmente refazer todo o aplicativo utilizando IONIC 5 e Vue 3. Juntamente com uma base de dados local (Como firebase ou LocalStorage), para que assim não precise do backend para rodar visualmente.
+Outro recurso que foi adicionado foi o tema dark da aplicação.
+
+## Rodando o projeto
+
+---
+
+O usuário é felipe e a senha 123456. Se pode rodar o projeto de duas formas:
+
+Usando o CLI do Ionic:
+
+```
+ionic serve
+```
+
+Ou utilizando o capacitor. Primeiro faça um build da aplicação:
+
+```
+ionic build
+```
+
+Em seguida os comandos do capacitor:
+
+```
+npx cap add android
+npx cap sync
+npx cap open android
+```
+
+Dessa forma se pode rodar no Android Studio com o emulador e fazer o build do APK.
+Para mais informações de como rodar a aplicação com capacitor, leia a documentação [aqui](https://capacitorjs.com/docs "https://capacitorjs.com/docs").
 
 ### Informações
 
