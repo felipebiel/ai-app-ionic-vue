@@ -1,21 +1,23 @@
 <template>
-  <vertical-align class="fadeIn">
-    <ion-row class="ion-padding">
-      <ion-col size="12" class="ion-text-center">
-        <img src="../../assets/images/login/logo_nova.png" width="250" />
-      </ion-col>
-      <login-form
-        @sendFormLogin="submitForm"
-        :loading="loading"
-        :resetForm="resetForm"
-        :loginError="loginError"
-      ></login-form>
-    </ion-row>
-  </vertical-align>
+  <ion-page>
+    <vertical-align class="fadeIn">
+      <ion-row class="ion-padding">
+        <ion-col size="12" class="ion-text-center">
+          <img src="../../assets/images/login/logo_nova.png" width="250" />
+        </ion-col>
+        <login-form
+          @sendFormLogin="submitForm"
+          :loading="loading"
+          :resetForm="resetForm"
+          :loginError="loginError"
+        ></login-form>
+      </ion-row>
+    </vertical-align>
+  </ion-page>
 </template>
 
 <script>
-import { IonRow, IonCol } from "@ionic/vue";
+import { IonRow, IonCol, IonPage } from "@ionic/vue";
 
 import VerticalAlign from "@/components/base/VerticalAlign";
 import LoginForm from "@/components/login/LoginForm";
@@ -26,6 +28,7 @@ export default {
     IonCol,
     VerticalAlign,
     LoginForm,
+    IonPage,
   },
   data() {
     return {
