@@ -77,3 +77,7 @@
 .text-success {
   color: #14950e;
 }
+
+.text-white {
+  color: var(--ion-color-primary-contrast);
+}

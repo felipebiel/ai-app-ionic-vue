@@ -4,20 +4,21 @@
       <ion-icon :icon="person" class="position__absolute"></ion-icon>
       <ion-input
         placeholder="Usuário"
-        class="ion-text-center"
         v-model="form.username"
+        class="input__padding--left"
       ></ion-input>
     </ion-item>
     <ion-text color="danger" v-if="usernameErrors">
-      <p class="ion-no-margin ion-margin-top ion-text-center">
+      <small class="ion-no-margin ion-margin-top ion-text-left">
         {{ usernameErrors }}
-      </p>
+      </small>
     </ion-text>
   </ion-col>
   <ion-col size="12">
     <ion-item class="ion-margin-top">
       <ion-icon :icon="lockClosed" class="position__absolute"></ion-icon>
       <ion-input
+        class="input__padding--left"
         placeholder="Senha"
         class="ion-text-center"
         type="password"
@@ -26,28 +27,29 @@
       ></ion-input>
     </ion-item>
     <ion-text color="danger" v-if="passwordErros">
-      <p class="ion-no-margin ion-margin-top ion-text-center">
+      <small class="ion-no-margin ion-margin-top ion-text-left">
         {{ passwordErros }}
-      </p>
+      </small>
     </ion-text>
 
     <ion-text color="danger" v-if="loginError">
-      <p class="ion-no-margin ion-margin-top ion-text-center">
+      <small class="ion-no-margin ion-margin-top ion-text-center">
         {{ loginError }}
-      </p>
+      </small>
     </ion-text>
   </ion-col>
-  <ion-col size="12" class="ion-text-center">
+  <ion-col size="12" class="ion-margin-top">
     <ion-button
       expand="block"
       color="secondary"
       class="ion-margin-top"
       @click="validatorLoginField"
     >
-      Login
+      Entrar
+      <ion-icon :icon="arrowForwardOutline" slot="end"></ion-icon>
     </ion-button>
     <div class="ion-margin-top" v-if="loading">
-      <div margin class="white ion-text-center">Carregando</div>
+      <div margin class="text-white ion-text-center">Carregando</div>
       <ion-progress-bar
         class="ion-margin-top"
         type="indeterminate"
@@ -55,6 +57,11 @@
       ></ion-progress-bar>
     </div>
   </ion-col>
+  <div class="cicle__top"></div>
+
+  <div class="cicle__middle"></div>
+
+  <div class="cicle__bottom"></div>
 </template>
 
 <script>
@@ -67,7 +74,13 @@ import {
   IonText,
   IonProgressBar,
 } from "@ionic/vue";
-import { person, lockClosed } from "ionicons/icons";
+import {
+  person,
+  lockClosed,
+  arrowForwardOutline,
+  eyeOutline,
+  eyeOffOutline,
+} from "ionicons/icons";
 export default {
   props: ["loading", "resetForm", "loginError"],
   emits: ["sendFormLogin"],
@@ -84,12 +97,16 @@ export default {
     return {
       person,
       lockClosed,
+      arrowForwardOutline,
+      eyeOutline,
+      eyeOffOutline,
       form: {
         username: "",
         password: "",
       },
       usernameErrors: "",
       passwordErros: "",
+      typePassword: "password",
     };
   },
   methods: {
@@ -135,10 +152,6 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.white {
-  color: var(--ion-color-primary-contrast);
-}
-
 ion-input {
   --color: var(--ion-color-primary-contrast);
 }
@@ -151,5 +164,56 @@ ion-item {
   --highlight-color-invalid: var(--ion-color-danger);
   --highlight-color-focused: var(--ion-color-primary-contrast);
   --background: transparent;
+}
+
+ion-input.input__padding--left {
+  --padding-start: 40px;
+}
+
+.cicle__top {
+  height: 120px;
+  position: fixed;
+  top: -50px;
+  right: -20px;
+  width: 120px;
+  border-radius: 100%;
+  background: linear-gradient(
+    228deg,
+    rgba(2, 0, 36, 0.31556372549019607) 0%,
+    rgba(9, 9, 121, 0.365983893557423) 35%,
+    rgba(0, 212, 255, 0.44441526610644255) 100%
+  );
+}
+
+.cicle__middle {
+  height: 300px;
+  position: fixed;
+  top: 100px;
+  left: -170px;
+  width: 300px;
+  border-radius: 100%;
+  background: linear-gradient(
+    228deg,
+    rgba(2, 0, 36, 0.31556372549019607) 0%,
+    rgba(9, 9, 121, 0.365983893557423) 35%,
+    rgba(0, 212, 255, 0.44441526610644255) 100%
+  );
+  z-index: -2;
+}
+
+.cicle__bottom {
+  height: 300px;
+  position: fixed;
+  bottom: -150px;
+  right: -170px;
+  width: 300px;
+  border-radius: 100%;
+  background: linear-gradient(
+    228deg,
+    rgba(2, 0, 36, 0.31556372549019607) 0%,
+    rgba(9, 9, 121, 0.365983893557423) 35%,
+    rgba(0, 212, 255, 0.44441526610644255) 100%
+  );
+  z-index: -2;
 }
 </style>
