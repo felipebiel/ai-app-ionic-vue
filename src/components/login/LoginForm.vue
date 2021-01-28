@@ -1,7 +1,7 @@
 <template>
   <ion-col size="12" class="">
     <ion-item class="ion-margin-top">
-      <ion-icon :icon="person" class="position-absolute"></ion-icon>
+      <ion-icon :icon="person" class="position__absolute"></ion-icon>
       <ion-input
         placeholder="Usuário"
         class="ion-text-center"
@@ -16,7 +16,7 @@
   </ion-col>
   <ion-col size="12">
     <ion-item class="ion-margin-top">
-      <ion-icon :icon="lockClosed" class="position-absolute"></ion-icon>
+      <ion-icon :icon="lockClosed" class="position__absolute"></ion-icon>
       <ion-input
         placeholder="Senha"
         class="ion-text-center"
