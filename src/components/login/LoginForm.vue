@@ -20,11 +20,14 @@
       <ion-input
         class="input__padding--left"
         placeholder="Senha"
-        class="ion-text-center"
-        type="password"
+        :type="typePassword"
         v-model="form.password"
         @keyup.enter="validatorLoginField"
       ></ion-input>
+      <ion-icon
+        :icon="typePassword == 'password' ? eyeOutline : eyeOffOutline"
+        @click="viewPassword"
+      ></ion-icon>
     </ion-item>
     <ion-text color="danger" v-if="passwordErros">
       <small class="ion-no-margin ion-margin-top ion-text-left">
@@ -141,6 +144,13 @@ export default {
       this.form.password = "";
       this.usernameErrors = "";
       this.passwordErros = "";
+    },
+    viewPassword() {
+      if (this.typePassword == "password") {
+        this.typePassword = "text";
+      } else {
+        this.typePassword = "password";
+      }
     },
   },
   watch: {
