@@ -9,6 +9,7 @@
         :nivelNoMomento="nivelNoMomento"
         :porcentagemReservatorio="porcentagemReservatorio"
         :litrosReservatorio="litrosReservatorio"
+        :bombaNoMomento="bombaNoMomento"
       ></level-tank>
 
       <!-- not Dry -->
@@ -50,8 +51,8 @@ export default {
   },
   data() {
     return {
-      bombaNoMomento: 0,
-      nivelNoMomento: 3,
+      bombaNoMomento: 1,
+      nivelNoMomento: 2,
       porcentagemReservatorio: 30,
       litrosReservatorio: 775,
       contraSecoNoMomento: 0,
