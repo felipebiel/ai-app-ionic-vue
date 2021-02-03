@@ -81,3 +81,22 @@
 .text-white {
   color: var(--ion-color-primary-contrast);
 }
+
+/* MArgins and PAdding */
+
+.margin-top-2x {
+  margin-top: 2rem;
+}
+
+/* box-shadow 2x */
+
+.elevation-2x {
+  box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px 2px, rgb(0 0 0 / 14%) 0px 2px 2px 0px,
+    rgb(0 0 0 / 12%) 0px 1px 5px 0px;
+}
+
+/* border-radius */
+
+.custom-border-radius-card{
+  border-radius: 15px;
+}
