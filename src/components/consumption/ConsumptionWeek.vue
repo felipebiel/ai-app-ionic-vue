@@ -1,7 +1,7 @@
 <template>
   <ion-card class="elevation-2x margin-top-2x custom-border-radius-card">
     <ion-card-header>
-      <ion-card-title>Consumo na Semana Corrente</ion-card-title>
+      <ion-card-title>Consumo Semanal</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <canvas ref="myChartMonth" height="300" class="ion-padding"></canvas>
