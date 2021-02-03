@@ -13,12 +13,15 @@
       v-show="progresso"
       loadingMessage="Carregando"
     ></loading-page>
+
+    <cicles-on-screen></cicles-on-screen>
   </base-layout>
 </template>
 
 <script>
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import LoadingPage from "@/components/base/LoadingPage.vue";
+import CiclesOnScreen from "@/components/base/CiclesOnScreen";
 import Chart from "chart.js";
 
 import { IonList, IonCardHeader, IonCardTitle } from "@ionic/vue";
@@ -31,6 +34,7 @@ export default {
     IonList,
     IonCardHeader,
     IonCardTitle,
+    CiclesOnScreen,
   },
   data() {
     return {
