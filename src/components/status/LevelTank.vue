@@ -1,37 +1,39 @@
 <template>
-  <div class="ion-text-center">
-    <h3>Nível</h3>
-  </div>
-  <div class="ion-text-center ion-margin">
-    <div class="box">
-      <div class="box__levels">
-        <div class="box__levels--title">
-          <span class="box__levels--full">Cheio</span>
+  <ion-card class="elevation-2x margin-top-2x custom-border-radius-card">
+    <ion-card-header class="ion-text-center">
+      <h3>Nível</h3>
+    </ion-card-header>
+    <ion-card-content class="ion-text-center ion-margin">
+      <div class="box">
+        <div class="box__levels">
+          <div class="box__levels--title">
+            <span class="box__levels--full">Cheio</span>
+          </div>
+          <div class="box__levels--title">
+            <span class="box__levels--medium">Médio</span>
+          </div>
+          <div class="box__levels--title">
+            <span class="box__levels--low">Baixo</span>
+          </div>
+          <div class="box__levels--title">
+            <span class="box__levels--empty">Vazio</span>
+          </div>
         </div>
-        <div class="box__levels--title">
-          <span class="box__levels--medium">Médio</span>
-        </div>
-        <div class="box__levels--title">
-          <span class="box__levels--low">Baixo</span>
-        </div>
-        <div class="box__levels--title">
-          <span class="box__levels--empty">Vazio</span>
+        <div :class="['ocean ocean__' + nivelNoMomento]">
+          <div class="wave" v-show="bombaNoMomento === 1"></div>
         </div>
       </div>
+    </ion-card-content>
 
-      <div :class="['ocean ocean__' + nivelNoMomento]">
-        <div class="wave" v-show="bombaNoMomento === 1"></div>
-      </div>
+    <div class="ion-text-center">
+      <h2 class="porcentagem_reservatorio">{{ porcentagemReservatorio }}%</h2>
+      <h4>Aproximadamente {{ litrosReservatorio }} Litros</h4>
     </div>
-  </div>
-
-  <div class="ion-text-center">
-    <h2 class="porcentagem_reservatorio">{{ porcentagemReservatorio }}%</h2>
-    <h4>Aproximadamente {{ litrosReservatorio }} Litros</h4>
-  </div>
+  </ion-card>
 </template>
 
 <script>
+import { IonCard, IonCardContent, IonCardHeader } from "@ionic/vue";
 export default {
   props: [
     "nivelNoMomento",
@@ -39,6 +41,11 @@ export default {
     "litrosReservatorio",
     "bombaNoMomento",
   ],
+  components: {
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+  },
   methods: {
     getTankUrl(level) {
       const images = require.context(
@@ -83,7 +90,8 @@ export default {
 .box__levels--title {
   font-size: 2rem;
   width: 100%;
-  padding: 30px;
+  padding: 10px;
+  position: relative;
 }
 
 .box__levels--full {
@@ -98,6 +106,7 @@ export default {
   background-color: #14950e;
   position: absolute;
   left: 25px;
+  top: 20px;
   border-radius: 100%;
 }
 
@@ -113,6 +122,7 @@ export default {
   background-color: #b88814;
   position: absolute;
   left: 25px;
+  top: 20px;
   border-radius: 100%;
 }
 
@@ -128,6 +138,7 @@ export default {
   background-color: #829e23;
   position: absolute;
   left: 25px;
+  top: 20px;
   border-radius: 100%;
 }
 
@@ -143,13 +154,14 @@ export default {
   background-color: #871111;
   position: absolute;
   left: 25px;
+  top: 20px;
   border-radius: 100%;
 }
 
 .ocean {
   position: absolute;
   bottom: 0;
-  z-index: -1;
+  z-index: 0;
   width: 100%;
   background-color: #182f4a;
 }
