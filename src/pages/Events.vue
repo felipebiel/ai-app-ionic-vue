@@ -8,6 +8,8 @@
       v-else
       loadingMessage="Carregando"
     ></loading-page>
+
+    <cicles-on-screen></cicles-on-screen>
   </base-layout>
 </template>
 
@@ -15,6 +17,7 @@
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import LoadingPage from "@/components/base/LoadingPage.vue";
 import EventsListItem from "@/components/events/EventsListItem.vue";
+import CiclesOnScreen from "@/components/base/CiclesOnScreen";
 
 export default {
   name: "Events",
@@ -22,6 +25,7 @@ export default {
     BaseLayout,
     LoadingPage,
     EventsListItem,
+    CiclesOnScreen,
   },
   data() {
     return {
