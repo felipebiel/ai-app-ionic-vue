@@ -1,8 +1,8 @@
 <template>
-  <ion-card-header class="card-info">
-    <ion-card-title>
-      <ion-icon :icon="alertCircleOutline"></ion-icon> Informativo
-    </ion-card-title>
+  <ion-card
+    class="elevation-2x margin-top-2x custom-border-radius-card card-info ion-padding"
+  >
+    <ion-card-title> Informativo </ion-card-title>
     <p>
       <b> <ion-icon name="list-box"></ion-icon> Nível: </b>
       <span :class="['text-nivel' + evento.currentLevel]">{{
@@ -32,31 +32,25 @@
         {{ $utils.dateAgo(evento.dateHourLevelCurrent) }}</small
       >
     </ion-card-subtitle>
-  </ion-card-header>
+  </ion-card>
 </template>
 
 <script>
-import {
-  IonCardHeader,
-  IonCardTitle,
-  IonIcon,
-  IonCardSubtitle,
-} from "@ionic/vue";
+import { IonCard, IonCardTitle, IonIcon, IonCardSubtitle } from "@ionic/vue";
 
-import { alertCircleOutline, timeOutline } from "ionicons/icons";
+import { timeOutline } from "ionicons/icons";
 
 export default {
   name: "EventsItem",
   props: ["evento"],
   components: {
-    IonCardHeader,
     IonCardTitle,
     IonIcon,
     IonCardSubtitle,
+    IonCard,
   },
   data() {
     return {
-      alertCircleOutline,
       timeOutline,
     };
   },

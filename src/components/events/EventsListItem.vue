@@ -1,7 +1,7 @@
 <template>
-  <ion-card v-for="evento in events" :key="evento.id">
+  <div v-for="evento in events" :key="evento.id">
     <events-item :evento="evento"></events-item>
-  </ion-card>
+  </div>
 
   <base-infinite-scroll
     spinner="circular"
@@ -15,12 +15,9 @@
 import EventsItem from "./EventsItem";
 import BaseInfiniteScroll from "../base/BaseInfiniteScroll";
 
-import { IonCard } from "@ionic/vue";
-
 export default {
   props: ["events"],
   components: {
-    IonCard,
     EventsItem,
     BaseInfiniteScroll,
   },
