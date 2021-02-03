@@ -1,11 +1,11 @@
 <template>
   <base-layout pageTitle="Consumo">
     <div class="fadeIn" v-show="!progresso">
-      <consuption-month></consuption-month>
+      <consumption-month></consumption-month>
 
-      <consuption-week></consuption-week>
+      <consumption-week></consumption-week>
 
-      <consuption-year></consuption-year>
+      <consumption-year></consumption-year>
     </div>
     <loading-page
       class="ion-padding fadeIn"
@@ -21,9 +21,9 @@
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import LoadingPage from "@/components/base/LoadingPage.vue";
 import CiclesOnScreen from "@/components/base/CiclesOnScreen";
-import ConsuptionMonth from "@/components/consuption/ConsuptionMonth";
-import ConsuptionWeek from "@/components/consuption/ConsuptionWeek";
-import ConsuptionYear from "@/components/consuption/ConsuptionYear";
+import ConsumptionMonth from "@/components/consumption/ConsumptionMonth";
+import ConsumptionWeek from "@/components/consumption/ConsumptionWeek";
+import ConsumptionYear from "@/components/consumption/ConsumptionYear";
 
 export default {
   name: "Consumption",
@@ -31,9 +31,9 @@ export default {
     BaseLayout,
     LoadingPage,
     CiclesOnScreen,
-    ConsuptionMonth,
-    ConsuptionWeek,
-    ConsuptionYear,
+    ConsumptionMonth,
+    ConsumptionWeek,
+    ConsumptionYear,
   },
   data() {
     return {
