@@ -1,10 +1,8 @@
 <template>
   <base-layout pageTitle="Consumo">
     <div class="fadeIn" v-show="!progresso">
-      <consumption-month></consumption-month>
-
       <consumption-week></consumption-week>
-
+      <consumption-month></consumption-month>
       <consumption-year></consumption-year>
     </div>
     <loading-page
