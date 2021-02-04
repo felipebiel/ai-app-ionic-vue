@@ -61,6 +61,7 @@
         >Salvar</ion-button
       >
     </div>
+    <cicles-on-screen></cicles-on-screen>
   </base-layout>
 </template>
 
@@ -78,6 +79,7 @@ import {
 } from "@ionic/vue";
 
 import BaseLayout from "@/components/base/BaseLayout.vue";
+import CiclesOnScreen from "@/components/base/CiclesOnScreen";
 
 export default {
   name: "Settings",
@@ -91,6 +93,7 @@ export default {
     IonButton,
     IonSelect,
     IonSelectOption,
+    CiclesOnScreen,
   },
   data() {
     return {
