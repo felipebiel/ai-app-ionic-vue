@@ -15,18 +15,23 @@
       </p>
 
       <p><b>Informações do Aplicativo: </b></p>
-      <p><b>Versão:</b> beta 2.5.0</p>
+      <p><b>Versão:</b> beta 3.0.0</p>
     </div>
+
+    <cicles-on-screen></cicles-on-screen>
   </base-layout>
 </template>
 
 <script>
+
 import BaseLayout from "@/components/base/BaseLayout.vue";
+import CiclesOnScreen from "@/components/base/CiclesOnScreen";
 
 export default {
   name: "About",
   components: {
     BaseLayout,
+    CiclesOnScreen,
   },
 };
 </script>
