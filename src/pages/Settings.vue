@@ -1,6 +1,6 @@
 <template>
   <base-layout pageTitle="Configuração" pageDefaultBackLink="/tabs">
-    <div class="fadeIn ion-padding">
+    <div class="fadeIn">
       <ion-card
         class="elevation-2x margin-top-2x custom-border-radius-card ion-padding"
       >
