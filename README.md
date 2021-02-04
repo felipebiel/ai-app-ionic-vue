@@ -4,7 +4,7 @@
 
 ---
 
-![Square Simple](https://user-images.githubusercontent.com/54965084/106041399-81a21a00-60ba-11eb-9b64-dea8bc111e0e.jpg)
+![new_full_desing](https://user-images.githubusercontent.com/54965084/106937365-6cea0580-66fc-11eb-8904-286ffd43f6f2.jpg)
 
 <p>O Abastecimento Inteligente, foi projetado, idealizado e desenvolvido por Anderson Ferreira Canel e Felipe Biel de Souza Silva, estudantes do curso da Ciência da Computação do Centro Universitário Augusto Motta (UNISUAM).</p>
   <p>O sistema foi projetado para solucionar o problema da automação do acionamento dos equipamentos de bombeamento de
@@ -17,7 +17,7 @@
 
 ---
 
-O aplicativo inicialmente foi desenvolvido com IONIC 3 + Angular, a proposta desta versão é inicialmente refazer todo o aplicativo utilizando IONIC 5 e Vue 3. Juntamente com uma base de dados local (Como firebase ou LocalStorage), para que assim não precise do backend para rodar visualmente.
+O aplicativo inicialmente foi desenvolvido com IONIC 3 + Angular, a proposta desta versão é refazer todo o aplicativo utilizando IONIC 5 e Vue 3. Juntamente com uma base de dados local, para que assim não precise do backend para rodar visualmente.
 Outro recurso que foi adicionado foi o tema dark da aplicação.
 
 ## Rodando o projeto
