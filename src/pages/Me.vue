@@ -1,50 +1,54 @@
 <template>
   <base-layout pageTitle="Meus Dados" pageDefaultBackLink="/tabs">
     <div class="fadeIn ion-padding">
-      <ion-item>
-        <ion-label position="stacked">Usuário</ion-label>
-        <ion-input v-model="form.username" disabled></ion-input>
-      </ion-item>
+      <ion-card
+        class="elevation-2x margin-top-2x custom-border-radius-card ion-padding"
+      >
+        <ion-item>
+          <ion-label position="stacked">Usuário</ion-label>
+          <ion-input v-model="form.username" disabled></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">E-mail</ion-label>
-        <ion-input v-model="form.email" disabled></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="stacked">E-mail</ion-label>
+          <ion-input v-model="form.email" disabled></ion-input>
+        </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Primeiro Nome</ion-label>
-        <ion-input v-model="form.firstname"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Primeiro Nome</ion-label>
+          <ion-input v-model="form.firstname"></ion-input>
+        </ion-item>
 
-      <ion-text color="danger" v-if="firstname_request">
-        <p text-center class="ion-no-margin">{{ firstname_message }}</p>
-      </ion-text>
+        <ion-text color="danger" v-if="firstname_request">
+          <p text-center class="ion-no-margin">{{ firstname_message }}</p>
+        </ion-text>
 
-      <ion-item>
-        <ion-label position="stacked">Sobrenome</ion-label>
-        <ion-input v-model="form.lastname"></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Sobrenome</ion-label>
+          <ion-input v-model="form.lastname"></ion-input>
+        </ion-item>
 
-      <ion-text color="danger" v-if="lastname_request">
-        <p text-center class="ion-no-margin">{{ lastname_message }}</p>
-      </ion-text>
+        <ion-text color="danger" v-if="lastname_request">
+          <p text-center class="ion-no-margin">{{ lastname_message }}</p>
+        </ion-text>
 
-      <ion-item>
-        <ion-label position="stacked">CPF</ion-label>
-        <ion-input v-model="form.cpf" disabled></ion-input>
-      </ion-item>
+        <ion-item>
+          <ion-label position="stacked">CPF</ion-label>
+          <ion-input v-model="form.cpf" disabled></ion-input>
+        </ion-item>
 
-      <ion-list>
-        <ion-button margin-top expand="block" @click="alterarUser()"
-          >Alterar</ion-button
-        >
-      </ion-list>
+        <ion-list>
+          <ion-button margin-top expand="block" @click="alterarUser()"
+            >Alterar</ion-button
+          >
+        </ion-list>
 
-      <ion-list>
-        <ion-button margin-top expand="block" @click="confirmRedefinirSenha()"
-          >Alterar a Senha</ion-button
-        >
-      </ion-list>
+        <ion-list>
+          <ion-button margin-top expand="block" @click="confirmRedefinirSenha()"
+            >Alterar a Senha</ion-button
+          >
+        </ion-list>
+      </ion-card>
     </div>
     <cicles-on-screen></cicles-on-screen>
   </base-layout>
@@ -59,6 +63,7 @@ import {
   IonText,
   IonList,
   toastController,
+  IonCard,
 } from "@ionic/vue";
 import BaseLayout from "@/components/base/BaseLayout.vue";
 import CiclesOnScreen from "@/components/base/CiclesOnScreen";
@@ -73,6 +78,7 @@ export default {
     IonInput,
     IonText,
     IonList,
+    IonCard,
     CiclesOnScreen,
   },
   data() {
