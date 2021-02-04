@@ -46,6 +46,7 @@
         >
       </ion-list>
     </div>
+    <cicles-on-screen></cicles-on-screen>
   </base-layout>
 </template>
 
@@ -60,6 +61,7 @@ import {
   toastController,
 } from "@ionic/vue";
 import BaseLayout from "@/components/base/BaseLayout.vue";
+import CiclesOnScreen from "@/components/base/CiclesOnScreen";
 
 export default {
   name: "Me",
@@ -71,6 +73,7 @@ export default {
     IonInput,
     IonText,
     IonList,
+    CiclesOnScreen,
   },
   data() {
     return {
